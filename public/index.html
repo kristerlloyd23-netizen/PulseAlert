@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5b5bf5">
+<title>PulseAlert — Real-Time Notifications Capstone</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="icon" href="/icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="authScreen" class="screen">
+  <div class="auth-card">
+    <h1>🔔 PulseAlert</h1>
+    <p class="subtitle">Real-time notifications demo</p>
+
+    <div id="loginForm">
+      <h2>Log In</h2>
+      <input type="text" id="loginUsername" placeholder="Username">
+      <input type="password" id="loginPassword" placeholder="Password">
+      <button onclick="handleLogin()">Log In</button>
+      <p class="switch">No account? <a onclick="showSignup()">Sign up</a></p>
+    </div>
+
+    <div id="signupForm" class="hidden">
+      <h2>Sign Up</h2>
+      <input type="text" id="signupUsername" placeholder="Username">
+      <input type="password" id="signupPassword" placeholder="Password">
+      <button onclick="handleSignup()">Sign Up</button>
+      <p class="switch">Have an account? <a onclick="showLogin()">Log in</a></p>
+    </div>
+
+    <p id="authError" class="error hidden"></p>
+  </div>
+</div>
+
+<div id="appScreen" class="screen hidden">
+  <header>
+    <h1>🔔 PulseAlert</h1>
+    <div class="header-right">
+      <span id="currentUsername"></span>
+      <div class="bell-wrapper">
+        <button id="bellBtn" onclick="toggleNotifications()">
+          🔔<span id="badge" class="badge hidden">0</span>
+        </button>
+        <div id="notifDropdown" class="notif-dropdown hidden">
+          <div class="notif-header">
+            <strong>Notifications</strong>
+            <a onclick="markAllRead()">Mark all read</a>
+          </div>
+          <div id="notifList" class="notif-list"></div>
+        </div>
+      </div>
+      <button id="enablePushBtn" class="enable-push-btn hidden" onclick="enablePush()">Enable push</button>
+      <button class="logout-btn" onclick="handleLogout()">Log out</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="post-form">
+      <textarea id="postContent" placeholder="Share something..."></textarea>
+      <button onclick="handleCreatePost()">Post</button>
+    </div>
+
+    <div id="postsList"></div>
+  </main>
+</div>
+
+<div id="toastContainer"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

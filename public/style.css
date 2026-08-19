@@ -1,0 +1,299 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #1a1a1a;
+}
+
+.hidden { display: none !important; }
+
+/* ---------- Auth screen ---------- */
+#authScreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  width: 320px;
+  text-align: center;
+}
+
+.auth-card h1 { margin: 0 0 4px; }
+.subtitle { color: #777; margin-top: 0; margin-bottom: 24px; font-size: 14px; }
+
+.auth-card input {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 6px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #5b5bf5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-card button:hover { background: #4747d6; }
+
+.switch { font-size: 13px; color: #666; margin-top: 12px; }
+.switch a { color: #5b5bf5; cursor: pointer; text-decoration: underline; }
+
+.error { color: #d33; font-size: 13px; margin-top: 12px; }
+
+/* ---------- App screen ---------- */
+header {
+  background: white;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header h1 { margin: 0; font-size: 20px; }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#currentUsername { font-weight: 600; color: #444; }
+
+.logout-btn {
+  background: #eee;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.logout-btn:hover { background: #ddd; }
+
+.enable-push-btn {
+  background: #eef0ff;
+  color: #5b5bf5;
+  border: 1px solid #ccd0ff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+.enable-push-btn:hover { background: #e0e3ff; }
+
+/* Bell + dropdown */
+.bell-wrapper { position: relative; }
+
+#bellBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  padding: 6px;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #e0334c;
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  padding: 1px 6px;
+  font-weight: bold;
+}
+
+.notif-dropdown {
+  position: absolute;
+  right: 0;
+  top: 36px;
+  width: 320px;
+  max-height: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+.notif-header a { color: #5b5bf5; cursor: pointer; font-size: 12px; }
+
+.notif-list { overflow-y: auto; }
+
+.notif-item {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f2f2f2;
+  cursor: pointer;
+  font-size: 13px;
+}
+.notif-item:hover { background: #f9f9f9; }
+.notif-item.unread { background: #f0f0ff; font-weight: 600; }
+.notif-item .time { font-size: 11px; color: #999; margin-top: 4px; font-weight: normal; }
+
+.empty { color: #999; padding: 16px; font-size: 13px; text-align: center; }
+
+/* ---------- Posts ---------- */
+main {
+  max-width: 600px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.post-form {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+
+.post-form textarea {
+  width: 100%;
+  min-height: 60px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.post-form button {
+  margin-top: 8px;
+  background: #5b5bf5;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.post-form button:hover { background: #4747d6; }
+
+.post {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  margin-bottom: 14px;
+}
+
+.post-header { display: flex; gap: 8px; align-items: baseline; margin-bottom: 6px; }
+.post-header .time { font-size: 12px; color: #999; }
+.post-content { font-size: 14px; margin-bottom: 10px; white-space: pre-wrap; }
+
+.comments { border-top: 1px solid #f0f0f0; padding-top: 8px; margin-bottom: 8px; }
+.comment { font-size: 13px; margin-bottom: 6px; color: #444; }
+
+.comment-form { display: flex; gap: 8px; }
+.comment-form input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.comment-form button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #eee;
+  cursor: pointer;
+  font-size: 13px;
+}
+.comment-form button:hover { background: #ddd; }
+
+/* ---------- Toasts ---------- */
+#toastContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 999;
+}
+
+.toast {
+  background: #1a1a1a;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  max-width: 300px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  animation: slideIn 0.25s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ---------- Mobile responsiveness ---------- */
+@media (max-width: 480px) {
+  header {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  header h1 { font-size: 17px; }
+  .header-right { gap: 8px; flex-wrap: wrap; }
+  #currentUsername { display: none; }
+  .logout-btn, .enable-push-btn { padding: 7px 10px; font-size: 12px; }
+
+  main { margin: 14px auto; padding: 0 10px; }
+  .post-form, .post { padding: 12px; }
+
+  .notif-dropdown {
+    position: fixed;
+    top: 56px;
+    right: 8px;
+    left: 8px;
+    width: auto;
+    max-height: 70vh;
+  }
+
+  .auth-card { width: 90vw; padding: 28px 20px; }
+
+  #toastContainer {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .toast { max-width: none; }
+
+  .comment-form { flex-direction: column; }
+  .comment-form button { width: 100%; }
+}
